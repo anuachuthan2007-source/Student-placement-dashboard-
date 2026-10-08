@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Placement Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <header>
+        <div>
+            <h1>🎓 Placement Portal</h1>
+            <p>Student Placement Dashboard</p>
+        </div>
+        <button class="logout" onclick="logout()">Logout</button>
+    </header>
+
+    <nav>
+        <button onclick="showSection('dashboard')">Dashboard</button>
+        <button onclick="showSection('jobs')">Jobs</button>
+        <button onclick="showSection('applications')">Applications</button>
+        <button onclick="showSection('profile')">Profile</button>
+        <button onclick="showSection('notifications')">Notifications</button>
+    </nav>
+
+    <!-- LOGIN -->
+    <section id="loginSection" class="login-section">
+
+        <div class="login-card">
+
+            <h2>Student Login</h2>
+
+            <input
+                type="email"
+                id="loginEmail"
+                placeholder="Email"
+            >
+
+            <input
+                type="password"
+                id="loginPassword"
+                placeholder="Password"
+            >
+
+            <button onclick="login()">Login</button>
+
+            <p id="loginMessage"></p>
+
+            <p class="demo">
+                Demo: student@gmail.com / 123456
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <main id="mainContent">
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="section">
+
+            <h2>Welcome, Student 👋</h2>
+
+            <div class="stats">
+
+                <div class="stat-card">
+                    <h3 id="jobCount">0</h3>
+                    <p>Available Jobs</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="applicationCount">0</h3>
+                    <p>Applications</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="shortlistedCount">0</h3>
+                    <p>Shortlisted</p>
+                </div>
+
+                <div class="stat-card">
+                    <h3 id="interviewCount">0</h3>
+                    <p>Interviews</p>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h3>Upcoming Deadlines</h3>
+
+                <ul>
+                    <li>Software Developer – 15 October 2026</li>
+                    <li>Data Analyst – 20 October 2026</li>
+                    <li>Web Developer – 25 October 2026</li>
+                </ul>
+
+            </div>
+
+            <div class="panel">
+
+                <h3>Interview Schedule</h3>
+
+                <div id="interviewList">
+                    <p>No interviews scheduled.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- JOBS -->
+        <section id="jobs" class="section">
+
+            <h2>Placement Opportunities</h2>
+
+            <div class="search-area">
+
+                <input
+                    type="text"
+                    id="jobSearch"
+                    placeholder="Search jobs or companies..."
+                    onkeyup="searchJobs()"
+                >
+
+                <select id="jobFilter" onchange="filterJobs()">
+                    <option value="all">All Jobs</option>
+                    <option value="software">Software</option>
+                    <option value="data">Data</option>
+                    <option value="web">Web</option>
+                </select>
+
+            </div>
+
+            <div id="jobList" class="job-list"></div>
+
+        </section>
+
+
+        <!-- APPLICATIONS -->
+        <section id="applications" class="section">
+
+            <h2>Application Tracking</h2>
+
+            <div id="applicationList"></div>
+
+        </section>
+
+
+        <!-- PROFILE -->
+        <section id="profile" class="section">
+
+            <h2>Profile Management</h2>
+
+            <div class="profile-card">
+
+                <label>Name</label>
+                <input id="profileName" value="Student">
+
+                <label>Email</label>
+                <input id="profileEmail" value="student@gmail.com">
+
+                <label>Department</label>
+                <input id="profileDept" value="Information Technology">
+
+                <label>Skills</label>
+                <input id="profileSkills" value="Python, JavaScript, HTML, CSS">
+
+                <button onclick="saveProfile()">Save Profile</button>
+
+                <p id="profileMessage"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOTIFICATIONS -->
+        <section id="notifications" class="section">
+
+            <h2>Notifications 🔔</h2>
+
+            <div class="notification">
+                📢 New Software Developer position available.
+            </div>
+
+            <div class="notification">
+                📅 Interview scheduled for Data Analyst position.
+            </div>
+
+            <div class="notification">
+                ✅ Your application has been shortlisted.
+            </div>
+
+            <div class="notification">
+                🏢 New company placement announcement available.
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
